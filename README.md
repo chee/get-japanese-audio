@@ -59,6 +59,44 @@ $ echo $?
 1
 ```
 
+## jag
+
+in the bin directory there is also a script called `jag`, which is macos only
+and will only really work if you have the japanese speech to text installed on
+your macintosh and set up as your default speech to text.
+
+everyone should do that and enable notification reading so she says
+アレルト！　ロウ　バテリ！ to you. it warms.
+
+anyway it will fetch the first word it finds for your term and optional reading
+as an ogg and save it, then open finder with that new file highlighted. then you
+can drag it into anki or burn it to cd or put it on your zip drive.
+
+if it can't find a file for you on the interconnected network of computers, it
+will create one with `say(1)`.
+
+thanks kyoko
+
+interface is like:
+
+```sh
+$ jag $term $reading
+
+# like
+
+$ jag あれ
+
+# now you'll have a file called あれ.ogg
+
+# you can force it to use say by setting the env variable SAY to
+# something truthy
+
+$ SAY=下さい jag 犬
+```
+
+it's not installed when you install this repo with npm, you'd have to download
+it yourself
+
 ## todo
 
 * more sources
