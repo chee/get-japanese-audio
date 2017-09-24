@@ -1,0 +1,22 @@
+#!/bin/bash
+
+term="$1"
+reading="$2"
+
+args="$term"
+
+if [ ! -z "$reading" ]; then
+  args="$args -r $reading"
+fi
+
+url="$(ja "$args" | grep [.]ogg$ | head -1)"
+
+if [ ! -z "$url" ] && [ -z "$SAY" ]; then
+ wget $url -O $term.ogg
+else
+  say -o $term.aiff $term
+  ffmpeg -i $term.aiff $term.ogg
+  rm $term.aiff
+fi
+
+open -R $term.ogg

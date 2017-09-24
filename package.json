@@ -4,7 +4,7 @@
   "description": "get japanese pronunciation audio urls",
   "main": "index.js",
   "bin": {
-    "ja": "cli.js"
+    "ja": "bin/ja.js"
   },
   "scripts": {
     "test": "echo help"
